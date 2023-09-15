@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Info about metrix</title>
+</head>
+<body>
+<ul class="list-group-item-primary">
+  <li>Логическая модель трактует термины в запросе как булевы переменные.</li>
+  <li>При наличии термина в документе соответствующая переменная принимает значение «true» (истина).</li>
+  <li>Присваивание терминам весовых коэффициентов не допускается.</li>
+  <li>Запросы формулируются как произвольные булевы выражения, связывающие термины с помощью стандартных логических операций: AND, OR или NOT.</li>
+  <li>Мерой соответствия запроса документу служит значение статуса выборки (RSV, retrieval status value).</li>
+  <li>В булевой модели статус выборки равен либо 1, если для данного документа вычисление выражения запроса дает значение «истина», либо 0 в противном случае.</li>
+  <li>Все документы с RSV = 1 считаются релевантными запросу.</li>
+</ul>
+</body>
+</html>
