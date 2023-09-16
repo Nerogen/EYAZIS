@@ -3,7 +3,11 @@ import os
 import re
 from itertools import groupby
 
-path = "D:\\EYAZIS\\files"
+from analyzer import analyse_text
+
+path = "\\files" # for Windows
+path = os.getcwd() + path
+
 
 str_to_tok = {'1': True,
               '0': False,
@@ -23,16 +27,14 @@ def tokenize():
         for index, name in enumerate(files, start=1):
             # print(index, name)
             with io.open(os.path.join(root, name), encoding='utf-8') as file:
-                for line in file:
-                    line = re.sub(r'[,.'""'!@#$%^:;/]', "", line).split(" ")
-                    # print(line)
-                    for word in line:
-                        if dox.get(word) and index not in dox[word]:
-                            dox[word].append(index)
-                        elif dox.get(word) and index in dox[word]:
-                            continue
-                        else:
-                            dox[word] = [index]
+                words = analyse_text(file.read())
+                for word in words:
+                    if dox.get(word) and index not in dox[word]:
+                        dox[word].append(index)
+                    elif dox.get(word) and index in dox[word]:
+                        continue
+                    else:
+                        dox[word] = [index]
 
     return dox
 
