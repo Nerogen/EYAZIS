@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Help</title>
-            <style>
+    <title>Logical search</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
         }
 
         #menu {
@@ -31,12 +37,28 @@
 </head>
 <body>
 <ul id="menu">
+        <li><a href="\update_base">Пополнение базы</a></li>
         <li><a href="\logical_search">Логический поиск</a></li>
         <li><a href="\info_about_metrix">Информация о метриках</a></li>
         <li><a href="\help">Справка</a></li>
 </ul>
-    <ul class="list-group-item-primary">
-      <li>1</li>
-    </ul>
+
+<form class="form-control" method="post">
+    <input type="text" name="query" placeholder="Введите логическую формулу для поиска ..." class="form-control"><br>
+    <button type="submit" class="btn btn-success">Поиск</button>
+</form>
+
+{% if request.method == 'POST' %}
+{% for item in result %}
+    <div class="row">
+        <div class="col-md-6 item">
+            <div class="item-in">
+                <div class="separator"></div>
+                <p>{{ item }}</p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
 </body>
 </html>

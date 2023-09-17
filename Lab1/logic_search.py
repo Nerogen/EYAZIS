@@ -3,9 +3,9 @@ import os
 import re
 from itertools import groupby
 
-from analyzer import analyse_text
+from Lab1.analyzer import analyse_text
 
-path = "\\files" # for Windows
+path = "\\files"  # for Windows
 path = os.getcwd() + path
 
 
@@ -25,7 +25,6 @@ def tokenize():
     os.chdir(path)
     for root, dirs, files in os.walk(path, topdown=False):
         for index, name in enumerate(files, start=1):
-            # print(index, name)
             with io.open(os.path.join(root, name), encoding='utf-8') as file:
                 words = analyse_text(file.read())
                 for word in words:
@@ -97,7 +96,7 @@ def nested_bool_eval(s):
 num = 0
 
 
-def find_word(file, word, words_list):
+def find_word(word, words_list):
     dox = tokenize()
     result = 0
     for key, val in dox.items():
@@ -108,34 +107,22 @@ def find_word(file, word, words_list):
     return str(result)
 
 
-def find_word_in_file(file, word, words_list):
-    result = 0
-    with io.open(file, encoding='utf-8') as file:
-        for line in file:
-            if word in line:
-                result = 1
-                words_list.append(word)
-    return str(result)
-
-
 def find_in_dir(text):
     os.chdir(path)
     global num
     num = 0
     result = []
-    for root, dirs, files in os.walk(".", topdown=False):
+    for root, dirs, files in os.walk("..", topdown=False):
         for name in files:
             words_list = []
             pattern = re.compile('\'(.*?)\'', re.S)
             num += 1
-            file_search_str = re.sub(pattern, lambda m: find_word(os.path.join(root, name), m.group()[1:-1],
-                                                                  words_list=words_list), text)
+            file_search_str = re.sub(pattern, lambda m: find_word(m.group()[1:-1], words_list=words_list), text)
             RSV = nested_bool_eval(file_search_str)
-
             new_words_list = [el for el, _ in groupby(words_list)]
             if RSV:
-                print("Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
-                    new_words_list))
+                # print("Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
+                #    new_words_list))
                 result.append(
                     "Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
                         new_words_list))

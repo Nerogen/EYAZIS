@@ -1,8 +1,7 @@
 import nltk
 from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
-from nltk.util import ngrams
+from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Загрузка стоп-слов
@@ -19,6 +18,8 @@ following you around? If you’re seeing the angel number 333, it holds a great 
 for your love life, your finances, your spiritual wellbeing, and more. We’ve compiled a list of
 all of the different ways to interpret the angel number 333, so you can figure out what your guardian
 angels are trying to tell you...."""
+
+
 def analyse_text(text):
     # Токенизация
     words = word_tokenize(text)
@@ -44,7 +45,8 @@ def analyse_text(text):
 
     # Вывод списка ключевых слов
     for word, tfidf in sorted_words:
-        print(f'{word}: {tfidf:.4f}')
+        pass
+        # print(f'{word}: {tfidf:.4f}')
     return [i[0] for i in sorted_words]
 
 

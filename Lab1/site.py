@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
-from logic_search import find_in_dir
+from Lab1.logic_search import find_in_dir
+from Lab1.parser import collect
 
 app = Flask("App")
 
@@ -18,6 +19,15 @@ def logical_search():
         return render_template("logical_search.html")
 
 
+@app.route("/update_base", methods=["POST", "GET"])
+def update_base():
+    if request.method == "POST":
+        result = collect(request.form["url"], request.form["name"])
+        return render_template("update_base.html", result=result)
+    else:
+        return render_template("update_base.html")
+
+
 @app.route("/info_about_metrix")
 def info_about_metrix():
     return render_template("info_about_metrix.html")
@@ -28,6 +38,5 @@ def help():
     return render_template("help.html")
 
 
-# (('Рогожин' AND 'Мышкин') OR 'Каренина')
 if __name__ == '__main__':
     app.run(debug=True)
