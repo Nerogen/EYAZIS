@@ -3,7 +3,7 @@ import os
 import re
 from itertools import groupby
 
-from Lab1.analyzer import analyse_text
+from analyzer import analyse_text
 
 path = "\\files"  # for Windows
 path = os.getcwd() + path

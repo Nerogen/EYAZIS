@@ -3,13 +3,13 @@ import os
 from bs4 import BeautifulSoup
 import requests
 
-from Lab1.logic_search import path
+from logic_search import path
 
 
 def collect(url, name):
     response = requests.get(url=url)
     soup = BeautifulSoup(response.text, "lxml")
-    file_name = path + "\\" + name + ".txt"
+    file_name = name + ".txt"
     with open(file_name, "w", encoding="utf-8") as file:
         file.write(soup.text)
 

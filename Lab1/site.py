@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 
-from Lab1.logic_search import find_in_dir
-from Lab1.parser import collect
+from logic_search import find_in_dir
+from parser import collect
 
 app = Flask("App")
 
