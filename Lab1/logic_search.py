@@ -2,10 +2,10 @@ import io
 import os
 import re
 from itertools import groupby
-
+import codecs
 from analyzer import analyse_text
 
-path = "\\files"  # for Windows
+path = "/files"  # for Windows
 path = os.getcwd() + path
 
 
@@ -25,7 +25,7 @@ def tokenize():
     os.chdir(path)
     for root, dirs, files in os.walk(path, topdown=False):
         for index, name in enumerate(files, start=1):
-            with io.open(os.path.join(root, name), encoding='utf-8') as file:
+            with open(os.path.join(root, name), "r", encoding="utf-8") as file:
                 words = analyse_text(file.read())
                 for word in words:
                     if dox.get(word) and index not in dox[word]:
@@ -112,7 +112,7 @@ def find_in_dir(text):
     global num
     num = 0
     result = []
-    for root, dirs, files in os.walk("..", topdown=False):
+    for root, dirs, files in os.walk(path, topdown=False):
         for name in files:
             words_list = []
             pattern = re.compile('\'(.*?)\'', re.S)

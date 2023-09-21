@@ -25,7 +25,7 @@ def analyse_text(text):
     words = word_tokenize(text)
 
     # Удаление стоп-слов
-    filtered_words = [word for word in words if word.isalnum() and word.lower() not in stop_words]
+    filtered_words = [word for word in words if word.isalnum() and word not in stop_words]
 
     # Подсчет частотности
     fdist = FreqDist(filtered_words)
@@ -47,7 +47,12 @@ def analyse_text(text):
     for word, tfidf in sorted_words:
         pass
         # print(f'{word}: {tfidf:.4f}')
-    return [i[0] for i in sorted_words]
+    tokens = [i[0] for i in sorted_words]
+    for i in text.split():
+        if i.lower() in tokens:
+            tokens[tokens.index(i.lower())] = i
+    breakpoint()
+    return tokens
 
 
 if __name__ == '__main__':

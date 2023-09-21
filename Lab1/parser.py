@@ -9,9 +9,12 @@ from logic_search import path
 def collect(url, name):
     response = requests.get(url=url)
     soup = BeautifulSoup(response.text, "lxml")
+    os.chdir(path)
     file_name = name + ".txt"
     with open(file_name, "w", encoding="utf-8") as file:
-        file.write(soup.text)
+    # with open(file_name, "w") as file:
+    #     breakpoint()
+        file.write(soup.get_text(strip=True))
 
     result = []
     for root, dirs, files in os.walk(path, topdown=False):
