@@ -51,7 +51,6 @@ def analyse_text(text):
     for i in text.split():
         if i.lower() in tokens:
             tokens[tokens.index(i.lower())] = i
-    breakpoint()
     return tokens
 
 
