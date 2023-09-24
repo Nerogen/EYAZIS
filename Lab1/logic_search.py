@@ -5,7 +5,7 @@ from itertools import groupby
 import codecs
 from analyzer import analyse_text
 
-path = "/files"  # for Windows
+path = "\\lab1\\files"  # for Windows
 path = os.getcwd() + path
 
 
@@ -97,6 +97,7 @@ num = 0
 
 
 def find_word(word, words_list):
+    # breakpoint()
     dox = tokenize()
     result = 0
     for key, val in dox.items():
@@ -117,15 +118,20 @@ def find_in_dir(text):
             words_list = []
             pattern = re.compile('\'(.*?)\'', re.S)
             num += 1
+            # breakpoint()
             file_search_str = re.sub(pattern, lambda m: find_word(m.group()[1:-1], words_list=words_list), text)
             RSV = nested_bool_eval(file_search_str)
+
             new_words_list = [el for el, _ in groupby(words_list)]
             if RSV:
-                # print("Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
+                with open(os.path.join(root, name), 'r') as file:
+                    link = file.readline()
+                    breakpoint
+                    # print("Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
                 #    new_words_list))
-                result.append(
+                result.append([
                     "Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
-                        new_words_list))
+                        new_words_list), link])
 
     return result
 

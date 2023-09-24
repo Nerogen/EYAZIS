@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 
+from metric import start_test
 from logic_search import find_in_dir
-from parser import collect
+from parser1 import collect
 
-app = Flask("App")
+app = Flask(__name__)
 
 
 @app.route("/")
@@ -28,10 +29,13 @@ def update_base():
         return render_template("update_base.html")
 
 
-@app.route("/info_about_metrix")
+@app.route("/info_about_metrix", methods=["POST", "GET"])
 def info_about_metrix():
-    return render_template("info_about_metrix.html")
-
+    if request.method == "POST":
+        result = start_test()
+        return render_template("info_about_metrix.html", result=result)
+    else:
+        return render_template("info_about_metrix.html")
 
 @app.route("/help")
 def help():

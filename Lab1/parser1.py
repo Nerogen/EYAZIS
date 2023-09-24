@@ -14,6 +14,7 @@ def collect(url, name):
     with open(file_name, "w", encoding="utf-8") as file:
     # with open(file_name, "w") as file:
     #     breakpoint()
+        file.write(url + "\n")
         file.write(soup.get_text(strip=True))
 
     result = []

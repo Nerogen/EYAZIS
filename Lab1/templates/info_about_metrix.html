@@ -45,5 +45,13 @@
   <li>В булевой модели статус выборки равен либо 1, если для данного документа вычисление выражения запроса дает значение «истина», либо 0 в противном случае.</li>
   <li>Все документы с RSV = 1 считаются релевантными запросу.</li>
 </ul>
+
+
+<form class="form-control" method="post"> 
+    <button type="submit" class="btn btn-success">Start test</button>
+</form>
+{% if request.method == 'POST' %}
+<p> {{result}} </p>
+{% endif %}
 </body>
 </html>
