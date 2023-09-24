@@ -130,6 +130,7 @@ def find_in_dir(text):
                     # print("Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
                 #    new_words_list))
                 result.append([
+                    
                     "Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
                         new_words_list), link])
 

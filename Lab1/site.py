@@ -12,6 +12,7 @@ def main_page():
     return render_template("main.html")
 
 
+
 @app.route("/logical_search", methods=["POST", "GET"])
 def logical_search():
     if request.method == "POST":

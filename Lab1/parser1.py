@@ -10,6 +10,7 @@ def collect(url, name):
     response = requests.get(url=url)
     soup = BeautifulSoup(response.text, "lxml")
     os.chdir(path)
+    
     file_name = name + ".txt"
     with open(file_name, "w", encoding="utf-8") as file:
     # with open(file_name, "w") as file:

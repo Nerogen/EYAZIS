@@ -2,12 +2,14 @@ from logic_search import find_in_dir
 
 def start_test():
     requests = {
+        
         "'work'": ['aircraft.txt', 'cellulose.txt', 'london.txt'], 
         "('Aircraft' OR 'Cellulose')": ['aircraft.txt', 'cellulose.txt'],
         "(NOT 'Aircraft')": ['cellulose.txt', 'london.txt', 'test.txt', 'work.txt'],
         "'GitHub'": ['test.txt'],
         "(NOT 'out')": ['cellulose.txt', 'london.txt', 'test.txt', 'work.txt', 'aircraft.txt']
     }
+    
     global_a = 0
     global_b = 0
     global_c = 0

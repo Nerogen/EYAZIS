@@ -46,6 +46,7 @@ def analyse_text(text):
     # Вывод списка ключевых слов
     for word, tfidf in sorted_words:
         pass
+    
         # print(f'{word}: {tfidf:.4f}')
     tokens = [i[0] for i in sorted_words]
     for i in text.split():
