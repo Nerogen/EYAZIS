@@ -4,19 +4,34 @@ from metric import start_test
 from logic_search import find_in_dir
 from parser1 import collect
 
-app = Flask(__name__)
+app = Flask("App")
 
 
 @app.route("/")
 def main_page():
     return render_template("main.html")
 
+def test(txt):
+    return txt
 
-
+other_queries = []
+another_result = []
 @app.route("/logical_search", methods=["POST", "GET"])
 def logical_search():
     if request.method == "POST":
-        return render_template("logical_search.html", result=find_in_dir(request.form["query"]))
+        if request.form["query"]:
+            result = find_in_dir(request.form["query"])
+            flag = ''
+            if result:
+                if result[0][1] == '':
+                    flag = 'Ничего не было найдено, возможно вы имели в виду:'
+                    other_queries = []
+                    for i in result:
+                        other_queries.append(result[0])
+            return render_template("logical_search.html", result=result, flag=flag, test=test)
+        else:
+            if other_queries:
+                breakpoint()
     else:
         return render_template("logical_search.html")
 
@@ -37,6 +52,7 @@ def info_about_metrix():
         return render_template("info_about_metrix.html", result=result)
     else:
         return render_template("info_about_metrix.html")
+
 
 @app.route("/help")
 def help():

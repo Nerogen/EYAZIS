@@ -54,6 +54,66 @@ def analyse_text(text):
             tokens[tokens.index(i.lower())] = i
     return tokens
 
+import nltk
+from nltk.corpus import wordnet
+
+# Инициализация NLTK (один раз в начале программы)
+nltk.download('wordnet')
+
+def search_with_synonyms(query):
+    # Выполните логический поиск с исходным запросом
+    search_results = perform_logical_search(query)
+
+    # Проверьте результаты поиска
+    if not search_results:
+        # Если результатов нет, найдите синонимы для слов в запросе
+        synonym_query = get_synonym_query(query)
+
+        # Предложите пользователю альтернативный запрос с синонимами
+        user_choice = input(f"No results found for '{query}'. Try '{synonym_query}'? (y/n): ")
+
+        if user_choice.lower() == 'y':
+            # Пользователь согласился, выполните поиск с альтернативным запросом
+            search_results = perform_logical_search(synonym_query)
+
+    # Обработка результатов поиска и вывод пользователю
+    process_search_results(search_results)
+
+def get_synonym(word):
+    # Разбиваем запрос на слова и находим синонимы для каждого слова
+
+        synonyms = find_synonyms(word)
+        
+        while word in synonyms:
+            synonyms.remove(word)
+        if synonyms:
+            return synonyms[0]  # Берем первый найденный синони
+
+def find_synonyms(word):
+    # Используем WordNet для поиска синонимов
+    synonyms = []
+    for syn in wordnet.synsets(word):
+        for lemma in syn.lemmas():
+            synonyms.append(lemma.name())
+    return synonyms
+
+def perform_logical_search(query):
+    # Здесь вы можете реализовать логику выполнения логического поиска
+    # и возврата результатов в виде списка документов
+    # Примечание: Этот шаг зависит от вашей спецификации поисковой системы
+
+    # Возвращаем фиктивный результат для примера
+    return ['Document1', 'Document2']
+
+def process_search_results(results):
+    # Здесь вы можете обработать результаты поиска и вывести их пользователю
+    # Например, отобразить найденные документы и их содержимое
+
+    for i, document in enumerate(results, start=1):
+        print(f"Result {i}: {document}")
+
+
+
 
 if __name__ == '__main__':
     analyse_text(text)

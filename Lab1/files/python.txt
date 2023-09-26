@@ -1,0 +1,31 @@
+https://docs.python.org/3/library/secrets.html
+secrets â Generate secure random numbers for managing secrets — Python 3.11.5 documentationThemeAutoLightDarkTable of Contentssecretsâ Generate secure random numbers for managing secretsRandom numbersGenerating tokensHow many bytes should tokens use?Other functionsRecipes and best practicesPrevious topichmacâ Keyed-Hashing for Message AuthenticationNext topicGeneric Operating System ServicesThis PageReport a BugShow SourceNavigationindexmodules|next|previous|Python»3.11.5 Documentation»The Python Standard Library»Cryptographic Services»secretsâ Generate secure random numbers for managing secrets|ThemeAutoLightDark|secretsâ Generate secure random numbers for managing secretsÂ¶New in version 3.6.Source code:Lib/secrets.pyThesecretsmodule is used for generating cryptographically strong
+random numbers suitable for managing data such as passwords, account
+authentication, security tokens, and related secrets.In particular,secretsshould be used in preference to the
+default pseudo-random number generator in therandommodule, which
+is designed for modelling and simulation, not security or cryptography.See alsoPEP 506Random numbersÂ¶Thesecretsmodule provides access to the most secure source of
+randomness that your operating system provides.classsecrets.SystemRandomÂ¶A class for generating random numbers using the highest-quality
+sources provided by the operating system.  Seerandom.SystemRandomfor additional details.secrets.choice(sequence)Â¶Return a randomly chosen element from a non-empty sequence.secrets.randbelow(n)Â¶Return a random int in the range [0,n).secrets.randbits(k)Â¶Return an int withkrandom bits.Generating tokensÂ¶Thesecretsmodule provides functions for generating secure
+tokens, suitable for applications such as password resets,
+hard-to-guess URLs, and similar.secrets.token_bytes([nbytes=None])Â¶Return a random byte string containingnbytesnumber of bytes.
+IfnbytesisNoneor not supplied, a reasonable default is
+used.>>>token_bytes(16)b'\xebr\x17D*t\xae\xd4\xe3S\xb6\xe2\xebP1\x8b'secrets.token_hex([nbytes=None])Â¶Return a random text string, in hexadecimal.  The string hasnbytesrandom bytes, each byte converted to two hex digits.  IfnbytesisNoneor not supplied, a reasonable default is used.>>>token_hex(16)'f9bf78b9a18ce6d46a0cd2b0b86df9da'secrets.token_urlsafe([nbytes=None])Â¶Return a random URL-safe text string, containingnbytesrandom
+bytes.  The text is Base64 encoded, so on average each byte results
+in approximately 1.3 characters.  IfnbytesisNoneor not
+supplied, a reasonable default is used.>>>token_urlsafe(16)'Drmhze6EPcv0fN_81Bj-nA'How many bytes should tokens use?Â¶To be secure againstbrute-force attacks,
+tokens need to have sufficient randomness.  Unfortunately, what is
+considered sufficient will necessarily increase as computers get more
+powerful and able to make more guesses in a shorter period.  As of 2015,
+it is believed that 32 bytes (256 bits) of randomness is sufficient for
+the typical use-case expected for thesecretsmodule.For those who want to manage their own token length, you can explicitly
+specify how much randomness is used for tokens by giving anintargument to the varioustoken_*functions.  That argument is taken
+as the number of bytes of randomness to use.Otherwise, if no argument is provided, or if the argument isNone,
+thetoken_*functions will use a reasonable default instead.NoteThat default is subject to change at any time, including during
+maintenance releases.Other functionsÂ¶secrets.compare_digest(a,b)Â¶ReturnTrueif strings orbytes-like objectsaandbare equal, otherwiseFalse,
+using a âconstant-time compareâ to reduce the risk oftiming attacks.
+Seehmac.compare_digest()for additional details.Recipes and best practicesÂ¶This section shows recipes and best practices for usingsecretsto manage a basic level of security.Generate an eight-character alphanumeric password:importstringimportsecretsalphabet=string.ascii_letters+string.digitspassword=''.join(secrets.choice(alphabet)foriinrange(8))NoteApplications should notstore passwords in a recoverable format,
+whether plain text or encrypted.  They should be salted and hashed
+using a cryptographically strong one-way (irreversible) hash function.Generate a ten-character alphanumeric password with at least one
+lowercase character, at least one uppercase character, and at least
+three digits:importstringimportsecretsalphabet=string.ascii_letters+string.digitswhileTrue:password=''.join(secrets.choice(alphabet)foriinrange(10))if(any(c.islower()forcinpassword)andany(c.isupper()forcinpassword)andsum(c.isdigit()forcinpassword)>=3):breakGenerate anXKCD-style passphrase:importsecrets# On standard Linux systems, use a convenient dictionary file.# Other platforms may need to provide their own word-list.withopen('/usr/share/dict/words')asf:words=[word.strip()forwordinf]password=' '.join(secrets.choice(words)foriinrange(4))Generate a hard-to-guess temporary URL containing a security token
+suitable for password recovery applications:importsecretsurl='https://example.com/reset='+secrets.token_urlsafe()Table of Contentssecretsâ Generate secure random numbers for managing secretsRandom numbersGenerating tokensHow many bytes should tokens use?Other functionsRecipes and best practicesPrevious topichmacâ Keyed-Hashing for Message AuthenticationNext topicGeneric Operating System ServicesThis PageReport a BugShow SourceNavigationindexmodules|next|previous|Python»3.11.5 Documentation»The Python Standard Library»Cryptographic Services»secretsâ Generate secure random numbers for managing secrets|ThemeAutoLightDark|©Copyright2001-2023, Python Software Foundation.This page is licensed under the Python Software Foundation License Version 2.Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.SeeHistory and Licensefor more information.The Python Software Foundation is a non-profit corporation.Please donate.Last updated on Sep 25, 2023.Found a bug?Created usingSphinx4.5.0.

@@ -3,11 +3,11 @@ import os
 import re
 from itertools import groupby
 import codecs
-from analyzer import analyse_text
+from analyzer import analyse_text, get_synonym
 
-path = "\\lab1\\files"  # for Windows
+
+path = "\\files"  # for Windows
 path = os.getcwd() + path
-
 
 str_to_tok = {'1': True,
               '0': False,
@@ -126,14 +126,20 @@ def find_in_dir(text):
             if RSV:
                 with open(os.path.join(root, name), 'r') as file:
                     link = file.readline()
-                    breakpoint
                     # print("Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
                 #    new_words_list))
                 result.append([
                     
                     "Файл: " + os.path.abspath(os.path.join(root, name)) + "\nСписок присутствующих слов: " + str(
                         new_words_list), link])
-
+    if not result:
+        words_in_quotes = re.findall(pattern, text)
+        for i in words_in_quotes:
+            syn = get_synonym(i)
+            if syn:
+                syn = syn.replace('_', ' ')
+                result.append((text.replace(i, syn), ''))
     return result
 
-
+if __name__ == '__main__':
+    find_in_dir("('good' AND 'bad') OR 'dog'")
