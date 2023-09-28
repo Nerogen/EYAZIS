@@ -29,9 +29,10 @@ def logical_search():
                     other_queries = []
                     for i in result:
                         other_queries.append(result[0])
-            return render_template("logical_search.html", result=result, flag=flag, test=test)
-        else:
-            pass
+                return render_template("logical_search.html", result=result, flag=flag, test=test)
+            else:
+                flag = 'Ничего не было найдено и нет подходящих синонимов к этому запросу!'
+                return render_template("logical_search.html", flag=flag)
     else:
         return render_template("logical_search.html")
 
