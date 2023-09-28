@@ -44,10 +44,9 @@
 </ul>
 
 <form class="form-control" method="post">
-    <input type="text" name="query" placeholder="Введите логическую формулу для поиска ..." class="form-control"><br>
+    <input type="text" name="query" id="text_query" placeholder="Введите логическую формулу для поиска ..." class="form-control"><br>
     <button type="submit" class="btn btn-success">Поиск</button>
 </form>
-
 {% if request.method == 'POST' %}
 <p>{{ flag }}</p>
 {% for item in result %}
@@ -55,12 +54,26 @@
         <div class="col-md-6 item">
             <div class="item-in">
                 <div class="separator"></div>
-                <p>{{ item[0] }}</p>
+                <p class="clickable">{{ item[0] }}</p>
                 <a href="{{ item[1] }}">{{item[1]}}</a>
             </div>
         </div>
     </div>
 {% endfor %}
 {% endif %}
+<script>
+        // Получаем ссылки на элементы input и текст
+        const outputText = document.getElementById("text_query");
+        // Получаем все элементы с классом "clickable"
+        const clickableElements = document.querySelectorAll(".clickable");
+
+        // Добавляем обработчик события клика к каждому кликабельному элементу
+        clickableElements.forEach(function (element) {
+            element.addEventListener("click", function () {
+                // Записываем текст кликабельного элемента в input
+                outputText.value = element.textContent;
+            });
+        });
+</script>
 </body>
 </html>

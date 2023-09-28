@@ -16,6 +16,7 @@ def test(txt):
 
 other_queries = []
 another_result = []
+
 @app.route("/logical_search", methods=["POST", "GET"])
 def logical_search():
     if request.method == "POST":
@@ -30,8 +31,7 @@ def logical_search():
                         other_queries.append(result[0])
             return render_template("logical_search.html", result=result, flag=flag, test=test)
         else:
-            if other_queries:
-                breakpoint()
+            pass
     else:
         return render_template("logical_search.html")
 
