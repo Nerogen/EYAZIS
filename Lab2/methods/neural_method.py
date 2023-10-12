@@ -1,16 +1,14 @@
-from langdetect import detect
+import langid
 
+def lang(text: str):  
+    #text = "i love my cat"
+    language, confidence = langid.classify(text)
 
-def lang(text: str):
-
-    try:
-        language = detect(text)
-        if language == 'ru':
-            return 'Russian'
-        elif language == 'en':
-            return 'English'
-        else:
-            return 'Unable to recognize'
-    except Exception as e:
-        return str(e)
-
+    print("Обнаружен язык:", language)
+    print("Уверенность:", confidence)
+    if language == 'ru':
+        return 'Russian'
+    elif language == 'en':
+        return 'English'
+    else:
+        return 'Unable to recognize'

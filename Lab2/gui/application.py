@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets
 from .main_window import Ui_MainWindow
 from .help_dialog import Ui_Dialog
-# from LR2.methods import ngram_method as ng, alphabetic_method as al, neural_method as nn
+from methods import ngram_method as ng, alphabetic_method as al, neural_method as nn
 
 
 class HelpDialog(QtWidgets.QDialog, Ui_Dialog):
@@ -65,8 +65,8 @@ class Application(QtWidgets.QMainWindow, Ui_MainWindow):
                 return
 
         method = self.l_method_combo_box.currentIndex()
-        # result = [nn.lang, al.lang, ng.lang][method](text)
-        # self.local_text_browser.append(f'Language: {result}')
+        result = [nn.lang, al.lang, ng.lang][method](text)
+        self.local_text_browser.append(f'Language: {result}')
 
     @benchmark
     def dir_start(self):
@@ -93,10 +93,10 @@ class Application(QtWidgets.QMainWindow, Ui_MainWindow):
                 summary.append('Unable to read')
                 continue
 
-            # result = [nn.lang, al.lang, ng.lang][method](text)
-            # self.local_text_browser.append(f'Language: {result}\n'
-            #                               f'############################')
-            # summary.append(result)
+            result = [nn.lang, al.lang, ng.lang][method](text)
+            self.local_text_browser.append(f'Language: {result}\n'
+                                           f'############################')
+            summary.append(result)
 
         counter = Counter(summary)
         self.local_text_browser.append(f'Summary:\n'
