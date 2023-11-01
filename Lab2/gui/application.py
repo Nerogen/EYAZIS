@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets
 from .main_window import Ui_MainWindow
 from .help_dialog import Ui_Dialog
-from methods import ngram_method as ng, alphabetic_method as al, neural_method as nn
+from Lab2.methods import ngram_method as ng, alphabetic_method as al, neural_method as nn
 
 
 class HelpDialog(QtWidgets.QDialog, Ui_Dialog):

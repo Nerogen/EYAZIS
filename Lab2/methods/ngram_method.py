@@ -3,8 +3,8 @@ import json
 from nltk import sent_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 
-ru_profile = json.load(open('./methods/resources/ngram/rus.json'))
-en_profile = json.load(open('./methods/resources/ngram/eng.json'))
+ru_profile = json.load(open('D:\\EYAZIS\\Lab2\\methods\\resources\\ngram\\rus.json'))
+en_profile = json.load(open('D:\\EYAZIS\\Lab2\\methods\\resources\\ngram\\eng.json'))
 
 
 def lang(text):
