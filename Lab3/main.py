@@ -1,6 +1,7 @@
 import math
 import re
 
+import langdetect
 from langdetect import detect
 from nltk.corpus import stopwords
 from pysummarization.abstractabledoc.top_n_rank_abstractor import TopNRankAbstractor
@@ -15,9 +16,12 @@ def read_article(file_name):
     sentences = []
 
     for sentence in article:
-        lang = detect(sentence)  # Detect the language of the sentence
-        if lang == 'de':  # If the language is German
-            sentences.append(re.sub("[^a-zA-ZäöüÄÖÜß]", " ", sentence).split(" "))
+        try:
+            lang = detect(sentence)  # Detect the language of the sentence
+        except langdetect.LangDetectException:
+            print(sentence)
+        if lang == 'fr':  # If the language is German
+            sentences.append(re.sub("[^A-zÀ-ú]+", " ", sentence).split(" "))
         else:
             sentences.append(re.sub("[^a-zA-Zа-яА-Я]", " ", sentence).split(" "))
 
@@ -92,8 +96,8 @@ def get_pos(sentence: list, text:str):
 
 # Modify this function to use German stopwords
 def get_stopwords(lang):
-    if lang == 'de':
-        return stopwords.words('german')
+    if lang == 'fr':
+        return stopwords.words('french')
     elif lang == 'ru':
         return stopwords.words('russian')
     else:
@@ -136,7 +140,7 @@ def generate_summary(file_name, texts, top_n=5):
     print(text)
 
 
-text_names = ["war_1_ru.txt", "german.txt"]
+text_names = ["war_1_ru.txt", "fr.txt"]
 texts = []
 
 for text_name in text_names:
