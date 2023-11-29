@@ -141,8 +141,8 @@ def generate_summary(file_name, texts, top_n=5):
     print(text)
 
 
-def main():
-    text_names = ["en.txt", "france.txt"]
+def main(file_name):
+    text_names = [file_name]
 
     def classic_referat_and_key_words():
 
