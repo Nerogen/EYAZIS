@@ -1,0 +1,40 @@
+https://www.zdnet.fr/actualites/avec-l-ia-generative-club-med-veut-concilier-client-ethique-et-croissance-39962688.htm
+Accueil > News > Intelligence artificielle (IA)
+Avec l’IA générative, Club Med veut concilier client, éthique et croissance
+Transformation digitale : Après la centralisation des données et leur exploitation en quasi temps réel via sa Data Factory, Club Med déploie progressivement l’IA générative en tirant profit de la multimodalité. L’ambition : automatiser des tâches pour gagner en efficacité et accentuer la personnalisation, sans négliger la protection.
+L’IA générative a conquis un groupe de plus : Club Med. La stratégie IA Gen de l’entreprise a été engagée en mars 2023. Elle se traduit depuis septembre par de premiers cas d’usage, qui s’inscrivent dans une politique de déploiement progressif.
+
+Pour ses premières applications, l’entreprise tire donc profit de ses contenus et de la multimodalité de l’IA pour générer de nouvelles données, en particulier du texte, du son et des images. Ces usages ciblent plus spécifiquement les domaines de l’expérience client et de l’automatisation des tâches pour les collaborateurs dans une optique d’amélioration de l’efficacité opérationnelle.
+
+
+Plus de personnalisation et aussi d'automatisation
+Club Med cite, par exemple, l’indexation et le tri automatique des plus de 50.000 images de sa base, ainsi que la traduction de contenu marketing pour sa clientèle internationale. Pour Quentin Briard, directeur général Global Marketing Digital & Technologies, le recours à l’IA Gen répond à la volonté de renforcer plusieurs piliers stratégiques.
+
+Et le dirigeant d’énumérer “l'individualisation de nos communications client à l’amélioration de nos processus de recrutement, en passant par le développement de solutions innovantes pour intensifier nos engagements RSE.”
+
+En interne, les modèles LLM sont aussi mis à contribution dans le secteur du développement logiciel. Club Med explore ainsi l’axe de “la modernisation des logiciels existants en utilisant l’IA générative pour évoluer vers des langages informatiques plus modernes.”
+
+Le cap est fixé et l’adoption s’effectuera donc de manière progressive. L’entreprise précise être actuellement en phase de cadrage et de mise en œuvre de plusieurs modèles de LLM. Ceux-ci permettront différents cas d’usage.
+
+
+ publicité 
+Différents LLM en cours de mise en œuvre
+Parmi les technologies déployées, en collaboration avec la startup Allobrain, figure notamment Claude AI d’Anthropic, Le modèle a été “entraîné sur de vastes ensembles de données textuelles” pour générer du texte.
+
+“Au Club Med, Claude AI a été entraîné pour fournir des réponses personnalisées en temps réel, notamment aux questions de nos équipes en Agence de voyage concernant nos Resorts”, indique le Chief Data Officer groupe, Siddhartha Chatterjee.
+
+D’ici la fin d’année, l’acteur prévoit de proposer directement à ses clients, sur quelques marchés, d’interagir avec son agent conversationnel. La promesse : leur faire gagner du temps dans leur recherche.
+
+Pour préserver son positionnement et son image en termes de relation client, Club Med insiste par ailleurs sur des usages de l’IA générative combinant “considération client et de croissance”, mais aussi éthique.
+
+
+Un comité éthique créé pour superviser
+Le groupe revendique une approche dite d’IA de confiance. Pour démontrer et assurer ses engagements dans ce secteur, Club Med a mis en place un comité éthique. Celui-ci est présidé par un chercheur en IA renommé, Jean-Gabriel Ganascia.
+
+“Ce comité doit veiller à garantir la cohérence entre les exigences éthiques et l'innovation”, précise le communiqué. L’IA de confiance repose sur plusieurs piliers, dont celui de la protection des données.
+
+Le riche patrimoine de données du Club Med doit ainsi migrer sur les infrastructures cloud de S3NS, une co-entreprise de Thales et Google Cloud (GCP). Ce choix de prestataire prévoit un hébergement et un chiffrement des données en Europe.
+
+L’entreprise s’appuie sur d’autres fondamentaux pour sa stratégie d’IA, comme la mise en œuvre d’une gouvernance fédérée, une Data Factory (rénovée en 2022) et la centralisation de 2,1 milliards points de données (commerciales, clients et opérationnelles possédées).
+
+Cet actif stratégique qu’est le patrimoine de données du Club Med lui permet notamment de développer et d’entraîner des modèles d’IA adaptés à ses besoins. Ce capital s’enrichit quotidiennement de plus de 5 millions de nouvelles données - traitées en quasi-temps réel.

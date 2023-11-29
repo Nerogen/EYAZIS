@@ -1,0 +1,27 @@
+https://www.zdnet.fr/actualites/quatre-ans-plus-tard-l-enquete-sur-le-piratage-d-altran-se-solde-par-un-nouveau-coup-de-filet-judiciaire-dans-le-milieu-des-rancongiciels-39962668.htm
+Quatre ans plus tard, l’enquête sur le piratage d’Altran se solde par un nouveau coup de filet judiciaire dans le milieu des rançongiciels
+Sécurité : Cinq personnes viennent d’être interpellées en Ukraine. Elles sont soupçonnées, avec treize autres suspects déjà arrêtés en 2021, d’être impliquées dans le chiffrement de 250 serveurs dans 71 pays, dont ceux d'Altran. Leurs dégâts sont estimés à plusieurs centaines de millions d’euros.
+Ils auraient mieux fait de ne pas pirater Altran. Une enquête policière française, initiée après une cyberattaque ayant visé en janvier 2019 le géant du conseil en ingénierie et en innovation, vient de déboucher après quatre ans d’enquête sur un coup de filet international en Ukraine contre un gang de rançongiciel.
+
+Cinq personnes, dont un homme de 32 ans suspecté d’être le bras droit de l’organisation cybercriminelle, ont en effet été arrêtées dans le pays de Volodymyr Zelensky par la police locale. Une vingtaine d’enquêteurs venus d’Allemagne, des Etats-Unis, de France et de Norvège étaient également présents en renfort. Soit un “effort sans précédent” dans la lutte contre les attaques par rançongiciel, a salué l’agence de police européenne Europol.
+Affaire emblématique 
+“C’est une affaire emblématique qui montre qu’il n’y a pas d’impunité”, signale également à ZDNET.fr Christophe Durand, le chef du pôle des cyberenquêtes du nouvel office anti-cybercriminalité. “Nous cherchons maintenant à accélérer le rythme de nos enquêtes”, ajoute-t-il.
+
+Ces hommes sont accusés d’avoir participé à des attaques avec les programmes malveillants LockerGoga, MegaCortex, Hive et Dharma contre plus de 250 serveurs dans 71 pays. Ce qui, calcule la police, aurait occasionné des dégâts se montant à plusieurs centaines de millions d’euros.
+
+Au total, 18 personnes âgées d’une vingtaine à une trentaine d’années ont été arrêtées dans ce dossier. Ces arrestations font en effet suite à une première vague d’interpellations, menée en octobre 2021. Treize personnes avaient alors été interpellées en Suisse en Ukraine grâce aux informations obtenues par la police française.
+Piste française 
+Les autorités judiciaires estiment désormais avoir appréhendé une bonne partie du gang, du développeur aux vendeurs d’accès initial, en passant par les blanchisseurs et les hackeurs chargés de déployer les programmes malveillants. Il manquerait toutefois une arrestation pour boucler l’enquête, celle du chef du gang, identifié mais à la localisation incertaine, selon la police française - son homologue ukrainienne a déclaré quant à elle que l'homme de 32 ans arrêté était le chef du gang. 
+
+L’enquête internationale avait été boostée par le travail des policiers de l’Office central de lutte contre la criminalité liée aux technologies de l'information et de la communication (OCLCTIC). Chargés de l’enquête sur le piratage d’Altran, ils avaient retrouvé la trace d’un homme vivant en Suisse, suspecté d’être le développeur du gang.
+
+Si l’Hexagone a demandé son extradition, la justice suisse enquête également sur d’autres piratages pouvant lui être reprochés. Cette arrestation avait toutefois permis la publication d’un déchiffreur du rançongiciel LockerGoga l’an dernier, comme l’avait expliqué ZDNET.fr. Un outil présentant un intérêt relatif, plusieurs années après ces attaques par rançongiciel, même s’il prouve qu’il est possible d’espérer un happy end en matière de ransomware.
+Serveur en France 
+Les policiers français avaient d’abord réussi à identifier un serveur de commande et de contrôle situé en France, loué à des tiers par un ressortissant ukrainien. Avant de suivre les traces des paiements de rançons pour remonter la piste des hackeurs malveillants. Selon L’Express, Altran, racheté depuis par l’entreprise de services numériques Capgemini, avait payé 300 bitcoins (alors un million d’euros environ) pour essayer de limiter la casse, sans toutefois réussir à obtenir une clé de déchiffrement des cybercriminels.
+
+Les policiers français avaient également réussi à cartographier l’infrastructure criminelle, basée notamment sur l’utilisation du cheval de Troie Trickbot et des outils de test d’intrusion Cobalt Strike.
+
+Les cybercriminels sont également soupçonnés d’avoir utilisé le programme Empire, une boîte à outils de sécurité offensive basée sur PowerShell. Leurs piratages reposaient, précise Europol, sur un mix d’attaques par force brute, d’injections SQL et de messages de hameçonnage destinés à voler des informations d'identification.
+
+ (Article mis à jour le 29 novembre à 9h50 avec l'ajout d'un lien vers le communiqué de la police ukrainienne). 
+ 
