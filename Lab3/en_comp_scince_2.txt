@@ -1,0 +1,39 @@
+https://www.sciencedaily.com/releases/2023/11/231127175938.htm
+Measuring long-term heart stress dynamics with smartwatch data
+Date:
+November 27, 2023
+Source:
+Duke University
+Summary:
+Biomedical engineers have developed a method using data from wearable devices such as smartwatches to digitally mimic an entire week's worth of an individual's heartbeats. The new 'digital twins' computational framework captures personalized arterial forces over 700,000 heartbeats to better predict risks of heart disease and heart attack. The advance is an important step toward evaluating the risks of heart disease or heart attack over months to years.
+Biomedical engineers at Duke University have developed a method using data from wearable devices such as smartwatches to digitally mimic an entire week's worth of an individual's heartbeats. The previous record covered only a few minutes.
+
+Called the Longitudinal Hemodynamic Mapping Framework (LHMF), the approach creates "digital twins" of a specific patient's blood flow to assess its 3D characteristics. The advance is an important step toward improving on the current gold standard in evaluating the risks of heart disease or heart attack, which uses snapshots of a single moment in time -- a challenging approach for a disease that progresses over months to years.
+The research was conducted in collaboration with computational scientists at Lawrence Livermore National Laboratory and was published on November 15, 2023, at the International Conference for High Performance Computing, Networking, Storage, and Analysis (SC23). The conference is the leading global conference in the field of high-performance computing.
+
+"Modeling a patient's 3D blood flow for even a single day would take a century's worth of compute time on today's best supercomputers," said Cyrus Tanade, a PhD candidate in the laboratory of Amanda Randles, the Alfred Winborne and Victoria Stover Mordecai Associate Professor of Biomedical Sciences at Duke. "If we want to capture blood flow dynamics over long periods of time, we need a paradigm-shifting solution in how we approach 3D personalized simulations."
+
+Over the past decade, researchers have steadily made progress toward accurately modeling the pressures and forces created by blood flowing through an individual's specific vascular geometry. Randles, one of the leaders in the field, has developed a software package called HARVEY to tackle this challenge using the world's fastest supercomputers.
+
+One of the most commonly accepted uses of such coronary digital twins is to determine whether or not a patient should receive a stent to treat a plaque or lesion. This computational method is much less invasive than the traditional approach of threading a probe on a guide wire into the artery itself.
+
+While this application requires only a handful of heartbeat simulations and works for a single snapshot in time, the field's goal is to track pressure dynamics over weeks or months after a patient leaves a hospital. To get even 10 minutes of simulated data on the Duke group's computer cluster, however, they had to lock it down for four months.
+
+"Obviously, that's not a workable solution to help patients because of the computing costs and time requirements," Randles said. "Think of it as taking three weeks to simulate what the weather will be like tomorrow. By the time you predict a rainstorm, the water would have already dried up."
+To ever apply this technology to real-world people over the long term, researchers must find a way to reduce the computational load. The new paper introduces the Longitudinal Hemodynamic Mapping Framework, which cuts what used to take nearly a century of simulation time down to just 24 hours.
+
+"The solution is to simulate the heartbeats in parallel rather than sequentially by breaking the task up amongst many different nodes," Tanade said. "Conventionally, the tasks are broken up spatially with parallel computing. But here, they're broken up in time as well."
+
+For example, one could reasonably assume that the specifics of a coronary flow at 10:00 am on a Monday will likely have little impact on the flow at 2:00 pm on a Wednesday. This allowed the team to develop a method to accurately simulate different chunks of time simultaneously and piece them back together. This breakdown made the pieces small enough to be simulated using cloud computing systems like Amazon Web Services rather than requiring large-scale supercomputers.
+
+To put the mapping framework to the test, researchers used tried and true methods to simulate 750 heartbeats -- about 10 minutes of biological time -- with the lab's allotment of computing time on Duke's computer cluster. Using continuous data on heart rate and electrocardiography from a smartwatch, it produced a complete set of 3D blood flow biomarkers that could correlate with disease progression and adverse events. It took four months to complete and exceeded the existing record by an order of magnitude.
+
+They then compared these results to those produced by LHMF running on Amazon World Services and Summit, an Oak Ridge National Laboratory system, in just a few hours. The errors were negligible, proving that LHMF could work on a useful time scale.
+
+The team then further refined LHMF by introducing a clustering method, further reducing the computational costs and allowing them to track the frictional force of blood on vessel walls -- a well-known biomarker of cardiovascular disease -- for over 700,000 heartbeats, or one week of continuous activity. These results allowed the group to create a personalized, longitudinal hemodynamic map, showing how the forces vary over time and the percentage of time spent in various vulnerable states.
+"The results significantly differed from those obtained over a single heartbeat," Tanade said. "This demonstrates that capturing longitudinal blood flow metrics provides nuances and information that is otherwise not perceptible with the previous gold standard approach."
+
+"If we can create a temporal map of wall stress in critical areas like the coronary artery, we could predict the risk of a patient developing atherosclerosis or the progression of such diseases," Randles added. "This method could allow us to identify cases of heart disease much earlier than is currently possible."
+
+This work was supported by the National Science Foundation (ACI-1548562, DGE164486), the Department of Energy (DE-AC52-07NA27344, DE-AC05-00OR22725), Amazon Web Services, the National Insitutes of Health (DP1AG082343) and the Coulter Foundation.
+
