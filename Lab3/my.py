@@ -3,9 +3,6 @@ import re
 
 from langdetect import detect
 from nltk.corpus import stopwords
-from pysummarization.abstractabledoc.top_n_rank_abstractor import TopNRankAbstractor
-from pysummarization.nlpbase.auto_abstractor import AutoAbstractor
-from pysummarization.tokenizabledoc.simple_tokenizer import SimpleTokenizer
 from summarizer import Summarizer
 
 
