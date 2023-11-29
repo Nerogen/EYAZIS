@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter import scrolledtext  # Добавлен модуль для многострочного текста
 from my import main
 
+
 class ReferencerApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -13,7 +14,8 @@ class ReferencerApp(tk.Tk):
 
         self.file_link = ''  # Добавлено свойство для хранения ссылки из файла
 
-        self.upload_button = tk.Button(self, text="Upload Text Document", command=self.upload_document, width=50, height=2)
+        self.upload_button = tk.Button(self, text="Upload Text Document", command=self.upload_document, width=50,
+                                       height=2)
         self.upload_button.pack(pady=20)
 
         self.result_label = tk.Label(self, text="Result will be shown here...", wraplength=800)
@@ -23,10 +25,12 @@ class ReferencerApp(tk.Tk):
         self.link_label.pack(pady=10)
         self.link_label.bind("<Button-1>", self.open_link)
 
-        self.save_button = tk.Button(self, text="Save Summary", command=self.save_summary, state="disabled", width=50, height=2)
+        self.save_button = tk.Button(self, text="Save Summary", command=self.save_summary, state="disabled", width=50,
+                                     height=2)
         self.save_button.pack(pady=20)
 
-        self.print_button = tk.Button(self, text="Print Summary", command=self.print_summary, state="disabled", width=50, height=2)
+        self.print_button = tk.Button(self, text="Print Summary", command=self.print_summary, state="disabled",
+                                      width=50, height=2)
         self.print_button.pack(pady=20)
 
         self.help_button = tk.Button(self, text="Help", command=self.display_help, width=50, height=2)
@@ -67,12 +71,14 @@ class ReferencerApp(tk.Tk):
         text_area.insert(tk.INSERT, self.summary)
 
     def display_help(self):
-        messagebox.showinfo("Help", "1. Click 'Upload Text Document' to upload a document.\n2. View the auto-generated summary.\n3. Click 'Save Summary' to save the generated summary.\n4. Click 'Print Summary' to print the summary.")
+        messagebox.showinfo("Help",
+                            "1. Click 'Upload Text Document' to upload a document.\n2. View the auto-generated summary.\n3. Click 'Save Summary' to save the generated summary.\n4. Click 'Print Summary' to print the summary.")
 
     def open_link(self, event):
         # Метод для открытия ссылки при клике на неё
         import webbrowser
         webbrowser.open(self.file_link)
+
 
 if __name__ == "__main__":
     app = ReferencerApp()
