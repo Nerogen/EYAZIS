@@ -3,9 +3,7 @@ import re
 
 from langdetect import detect
 from nltk.corpus import stopwords
-from pysummarization.abstractabledoc.top_n_rank_abstractor import TopNRankAbstractor
-from pysummarization.nlpbase.auto_abstractor import AutoAbstractor
-from pysummarization.tokenizabledoc.simple_tokenizer import SimpleTokenizer
+from summarizer import Summarizer
 
 
 def read_article(file_name):
@@ -170,23 +168,25 @@ def main(file_name):
         for i in range(len(sorted_words)):
             print(sorted_words[i])
 
+        return sorted_words
+
     def ml_referat():
-        for doc in text_names:
-            with open(doc, encoding='utf-8') as f:
-                document = f.read()
 
-            auto_abstractor = AutoAbstractor()
-            auto_abstractor.tokenizable_doc = SimpleTokenizer()
-            auto_abstractor.delimiter_list = [".", "\n"]
-            abstractable_doc = TopNRankAbstractor()
-            result_dict = auto_abstractor.summarize(document, abstractable_doc)
+        with open(text_names[0], encoding='utf-8') as f:
+            document = f.read()
 
-            for sentence in result_dict["summarize_result"]:
-                print(sentence)
+        summarizer = Summarizer()
+        summary = summarizer(document, ratio=0.2)
 
-    classic_referat_and_key_words()
+        print("Summary")
+
+        print(summary)
+
+        return summary
+
+    # classic_referat_and_key_words()
     ml_referat()
 
 
 if __name__ == '__main__':
-    main()
+    main("en.txt")
