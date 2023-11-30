@@ -32,7 +32,9 @@ def read_article(file_name):
         if len(sentence) > 3:
             lang = detect(sentence)  # Detect the language of the sentence
             if lang == 'fr':  # If the language is French
-                sentences.append([item for item in re.sub("[^a-zA-ZàâçéèêëîïôûùüÿñæœÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒ]", " ", sentence).split(" ") if item != ''])
+                sentences.append(
+                    [item for item in re.sub("[^a-zA-ZàâçéèêëîïôûùüÿñæœÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒ]", " ", sentence).split(" ") if
+                     item != ''])
             else:
                 sentences.append([item for item in re.sub("[^a-zA-Z]", " ", sentence).split(" ") if item != ''])
 
@@ -113,6 +115,7 @@ def get_stopwords(lang):
         return stopwords.words('english')
     else:
         return []
+
 
 @timing_decorator
 def generate_summary(file_name, texts, top_n=5):

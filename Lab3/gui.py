@@ -72,7 +72,7 @@ class ReferencerApp(tk.Tk):
 
     def display_help(self):
         messagebox.showinfo("Help",
-                            "1. Click 'Upload Text Document' to upload a document.\n2. View the auto-generated summary.\n3. Click 'Save Summary' to save the generated summary.\n4. Click 'Print Summary' to print the summary.")
+                            "1. Click 'Upload Text Document' to upload a document.\n2. Click 'Save Summary' to save the generated summary.\n3. Click 'Print Summary' to print the summary.")
 
     def open_link(self, event):
         # Метод для открытия ссылки при клике на неё
