@@ -68,7 +68,7 @@ class ReferencerApp(tk.Tk):
         text_area.pack(padx=10, pady=10)
 
         # Установка текста в многострочную область
-        text_area.insert(tk.INSERT, "\n".join(self.data))
+        text_area.insert(tk.INSERT, ("\n" * 3).join(self.data))
 
     def display_help(self):
         messagebox.showinfo("Help",

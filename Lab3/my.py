@@ -184,10 +184,12 @@ def main(file_name):
                         words[term] = get_word_freq(term, texts[0])
 
         sorted_words = sorted(words.items(), key=lambda x: x[1], reverse=True)
-        for i in range(len(sorted_words)):
-            print(sorted_words[i])
 
-        result.append(sorted_words)
+        r = ""
+        for i in range(len(sorted_words)):
+            r += str(sorted_words[i])
+
+        result.append(r)
 
         return result
 
