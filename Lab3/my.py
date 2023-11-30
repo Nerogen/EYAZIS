@@ -199,6 +199,8 @@ def main(file_name):
         with open(text_names[0], encoding='utf-8') as f:
             document = f.read()
 
+        document = document[document.find("\n"):]
+
         summarizer = Summarizer()
         summary = summarizer(document, ratio=0.2)
 

@@ -55,7 +55,7 @@ class ReferencerApp(tk.Tk):
 
     def save_summary(self):
         save_path = filedialog.asksaveasfilename(defaultextension=".txt")
-        with open(save_path, 'w') as f:
+        with open(save_path, 'w', encoding="utf-8") as f:
             f.write("\n".join(self.data))
         messagebox.showinfo("Saved", f"Summary saved to {save_path}")
 
