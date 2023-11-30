@@ -1,2 +1,4 @@
-pysummarization
-nltk
+langdetect==1.0.9
+nltk==3.8.1
+pysummarization==1.1.9
+summarizer==0.0.7
