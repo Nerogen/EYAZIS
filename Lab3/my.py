@@ -9,6 +9,8 @@ from summarizer import Summarizer
 def read_article(file_name):
     with open(file_name, "r", encoding='utf-8') as file:
         filedata = file.read()
+
+    filedata = filedata[filedata.find("\n"):]
     article = filedata.split(".")
     sentences = []
 
@@ -21,7 +23,6 @@ def read_article(file_name):
             else:
                 sentences.append([item for item in re.sub("[^a-zA-Z]", " ", sentence).split(" ") if item != ''])
 
-    sentences.pop()
     return sentences
 
 
@@ -138,8 +139,11 @@ def generate_summary(file_name, texts, top_n=5):
     print("all text with weights:", "*" * 100)
     print(text)
 
+    return text
+
 
 def main(file_name):
+    refs = []
     text_names = [file_name]
 
     def classic_referat_and_key_words():
@@ -149,8 +153,9 @@ def main(file_name):
         for text_name in text_names:
             texts.append(read_article(text_name))
 
+        result = []
         for summary in text_names:
-            generate_summary(summary, texts)
+            result.append(generate_summary(summary, texts))
 
         print("Реферат в виде списка ключевых слов: ", "*" * 100)
 
@@ -168,7 +173,9 @@ def main(file_name):
         for i in range(len(sorted_words)):
             print(sorted_words[i])
 
-        return sorted_words
+        result.append(sorted_words)
+
+        return result
 
     def ml_referat():
 
@@ -184,8 +191,10 @@ def main(file_name):
 
         return summary
 
-    # classic_referat_and_key_words()
-    ml_referat()
+    refs.extend(classic_referat_and_key_words())
+    refs.append(ml_referat())
+
+    return refs
 
 
 if __name__ == '__main__':
