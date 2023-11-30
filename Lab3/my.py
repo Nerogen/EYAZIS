@@ -1,9 +1,22 @@
 import math
 import re
+import time
 
 from langdetect import detect
 from nltk.corpus import stopwords
 from summarizer import Summarizer
+
+
+def timing_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Время выполнения функции '{func.__name__}': {execution_time} секунд")
+        return result
+
+    return wrapper
 
 
 def read_article(file_name):
@@ -101,7 +114,7 @@ def get_stopwords(lang):
     else:
         return []
 
-
+@timing_decorator
 def generate_summary(file_name, texts, top_n=5):
     lang = texts[0][0][0]  # Detect the language of the first sentence
 
@@ -146,6 +159,7 @@ def main(file_name):
     refs = []
     text_names = [file_name]
 
+    @timing_decorator
     def classic_referat_and_key_words():
 
         texts = []
@@ -177,6 +191,7 @@ def main(file_name):
 
         return result
 
+    @timing_decorator
     def ml_referat():
 
         with open(text_names[0], encoding='utf-8') as f:
@@ -192,6 +207,7 @@ def main(file_name):
         return summary
 
     refs.extend(classic_referat_and_key_words())
+
     refs.append(ml_referat())
 
     return refs
