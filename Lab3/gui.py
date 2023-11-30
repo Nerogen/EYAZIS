@@ -56,7 +56,7 @@ class ReferencerApp(tk.Tk):
     def save_summary(self):
         save_path = filedialog.asksaveasfilename(defaultextension=".txt")
         with open(save_path, 'w') as f:
-            f.write(self.data)
+            f.write("\n".join(self.data))
         messagebox.showinfo("Saved", f"Summary saved to {save_path}")
 
     def print_summary(self):
@@ -68,7 +68,7 @@ class ReferencerApp(tk.Tk):
         text_area.pack(padx=10, pady=10)
 
         # Установка текста в многострочную область
-        text_area.insert(tk.INSERT, self.data)
+        text_area.insert(tk.INSERT, "\n".join(self.data))
 
     def display_help(self):
         messagebox.showinfo("Help",
